@@ -15,7 +15,18 @@
     $unitsFrom = htmlspecialchars($_POST["convert_unit_from"]);
     $unitsTo = htmlspecialchars($_POST["convert_unit_to"]);
 
-    echo  "{$length} {$unitsFrom} = {$length} {$unitsTo}";
+    function convertUnit($length, $unitsFrom, $unitsTo)
+    {
+        if (strcmp($unitsFrom, $unitsTo) == 0) {
+            return $length;
+        } else if (strcmp($unitsFrom, "foot") == 0 && strcmp($unitsTo, "millimeter") == 0) {
+            return $length * 30.48;
+        }
+    }
+
+    $convertedUnit = convertUnit($length, $unitsFrom, $unitsTo);
+
+    echo  "<p>{$length} {$unitsFrom} = {$convertedUnit} {$unitsTo}</p>";
     ?>
     <button>reset</button>
 </body>
