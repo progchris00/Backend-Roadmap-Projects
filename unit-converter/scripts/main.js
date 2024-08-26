@@ -1,6 +1,8 @@
-let currentUnitMeasure = "length";
+const convertLength = document.getElementById("convert-length");
+const convertWeight = document.getElementById("convert-weight");
+const convertTemperature = document.getElementById("convert-temperature");
 
-const units = {
+const unitOptions = {
   length: [
     "millimeter",
     "centimeter",
@@ -15,9 +17,7 @@ const units = {
   temperature: ["celsius", "fahrenheit", "kelvin"],
 };
 
-const convertLength = document.getElementById("convert-length");
-const convertWeight = document.getElementById("convert-weight");
-const convertTemperature = document.getElementById("convert-temperature");
+let currentConversionWindow = "length";
 
 convertLength.addEventListener("click", () => {
   currentUnitMeasure = "length";
@@ -35,29 +35,37 @@ convertTemperature.addEventListener("click", () => {
   renderOptions(currentUnitMeasure);
 });
 
+function renderUnitOptions(currentConversionWindow) {
+  const startUnitMenu = document.getElementById("convert-unit-from");
+  const endUnitMenu = document.getElementById("convert-unit-to");
+
+  startUnitMenu.innerHTML = "";
+  endUnitMenu.innerHTML = "";
+
+  const startFragment = document.createDocumentFragment();
+  const endFragment = document.createDocumentFragment();
+
+  const option = unitOptions[currentConversionWindow];
+
+  option.forEach((unit) => {
+    const startUnitOption = document.createElement("option");
+    startUnitOption.setAttribute("value", unit);
+    startUnitOption.textContent = unit;
+    startFragment.appendChild(startUnitOption);
+
+    const endUnitOption = document.createElement("option");
+    endUnitOption.setAttribute("value", unit);
+    endUnitOption.textContent = unit;
+    endFragment.appendChild(endUnitOption);
+  });
+
+  startUnitMenu.appendChild(startFragment);
+  endUnitMenu.appendChild(endFragment);
+}
+
 function applyActiveClass() {
   const activeButton = document.getElementById(`convert-${currentUnitMeasure}`);
   activeButton.classList.add("active-button");
 }
 
-function renderOptions(currentUnitMeasure) {
-  const convertUnitFrom = document.getElementById("convert_unit_from");
-  const convertUnitTo = document.getElementById("convert_unit_to");
-
-  for (let index = 0; index < units[currentUnitMeasure].length; index++) {
-    const optionChild = document.createElement("option");
-    optionChild.setAttribute("value", units[currentUnitMeasure][index]);
-    optionChild.textContent = units[currentUnitMeasure][index];
-    convertUnitFrom.appendChild(optionChild);
-  }
-
-  for (let index = 0; index < units[currentUnitMeasure].length; index++) {
-    const optionChild = document.createElement("option");
-    optionChild.setAttribute("value", units[currentUnitMeasure][index]);
-    optionChild.textContent = units[currentUnitMeasure][index];
-    convertUnitTo.appendChild(optionChild);
-  }
-}
-
-applyActiveClass();
-renderOptions(currentUnitMeasure);
+renderUnitOptions(currentConversionWindow);
