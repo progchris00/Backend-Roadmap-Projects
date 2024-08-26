@@ -1,3 +1,16 @@
+:root {
+  --clr-primary: #fcf5eb;
+  --clr-secondary: #e8710b;
+
+  --fn-clr-primary: #000;
+
+  --ff-poppins: "Poppins", sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 600;
+  --fw-black: 700;
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
