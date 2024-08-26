@@ -19,7 +19,7 @@
             <button class="conversion-button" id="weight-conversion">Weight</button>
             <button class="conversion-button" id="temperature-conversion">Temperature</button>
         </div>
-        <form action="result.php" method="post">
+        <form action="result.php" method="post" id="conversion-form">
             <label for="unit-to-convert">Enter the length to convert:</label>
             <input name="unit-to-convert" id="unit-to-convert" type="number">
             <label for="convert-unit-from">Unit to Convert from</label>
