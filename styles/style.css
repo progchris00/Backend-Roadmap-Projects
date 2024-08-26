@@ -74,38 +74,64 @@ h6 {
   isolation: isolate;
 }
 
-main {
-  width: 300px;
-  border: 2px solid black;
+body {
+  background-color: var(--clr-primary);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-poppins);
+  font-size: 1rem;
 }
 
-.choices {
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1.5rem auto;
+}
+
+main {
+  width: 400px;
+  border-radius: 0.75rem;
+  border: 2px solid var(--clr-secondary);
+  padding: 0 1rem;
+}
+
+.conversion-choices-window {
   display: flex;
   gap: 10px;
+  margin-bottom: 2rem;
 }
 
-label,
-button {
-  display: block;
-}
-
-input,
-select {
-  width: 200px;
-}
-
-.choices button {
-  background-color: white;
+.conversion-choices-window button {
+  background-color: var(--clr-primary);
   border: none;
-  padding: 0;
+  font-size: 1.125rem;
   cursor: pointer;
 }
 
-.active-button {
-  color: rgb(49, 49, 219);
-  text-decoration: underline;
+#conversion-form input,
+#conversion-form select {
+  width: 100%;
+  border: 2px solid var(--clr-secondary);
+  background-color: var(--clr-primary);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.25rem;
 }
 
-label {
-  margin-top: 10px;
+#convert-button {
+  background-color: var(--clr-secondary);
+  width: 100%;
+  margin-bottom: 2rem;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: #fff;
+}
+
+/* Utilities */
+.active-button {
+  color: var(--clr-secondary);
+  text-decoration: underline;
 }
