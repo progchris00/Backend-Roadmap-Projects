@@ -12,9 +12,9 @@
     <main>
         <h1>Unit Converter</h1>
         <div class="choices">
-            <p>Length</p>
-            <p>Weight</p>
-            <p>Temperature</p>
+            <button id="convert-length">Length</button>
+            <button id="convert-weight">Weight</button>
+            <button id="convert-temperature">Temperature</button>
         </div>
         <form action="result.php" method="post">
             <label for="length">Enter the length to convert:</label>

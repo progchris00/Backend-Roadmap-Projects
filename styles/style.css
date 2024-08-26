@@ -1,4 +1,35 @@
+main {
+  width: 300px;
+  border: 2px solid black;
+}
+
+.choices {
+  display: flex;
+  gap: 10px;
+}
+
 label,
 button {
   display: block;
+}
+
+input,
+select {
+  width: 200px;
+}
+
+.choices button {
+  background-color: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.active-button {
+  color: rgb(49, 49, 219);
+  text-decoration: underline;
+}
+
+label {
+  margin-top: 10px;
 }
