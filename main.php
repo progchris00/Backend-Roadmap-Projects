@@ -11,23 +11,24 @@
 <body>
     <main>
         <h1>Unit Converter</h1>
-        <div class="choices">
-            <button id="convert-length">Length</button>
-            <button id="convert-weight">Weight</button>
-            <button id="convert-temperature">Temperature</button>
+        <div class="conversion-choices-window">
+            <button class="conversion-button" id="length-conversion">Length</button>
+            <button class="conversion-button" id="weight-conversion">Weight</button>
+            <button class="conversion-button" id="temperature-conversion">Temperature</button>
         </div>
         <form action="result.php" method="post">
-            <label for="length">Enter the length to convert:</label>
-            <input name="length" id="length" type="number">
-            <label for="convert_unit_from">Unit to Convert from</label>
-            <select name="convert_unit_from" id="">
+            <label for="unit-to-convert">Enter the length to convert:</label>
+            <input name="unit-to-convert" id="unit-to-convert" type="number">
+            <label for="convert-unit-from">Unit to Convert from</label>
+            <select name="convert-unit-from" id="convert-unit-from">
             </select>
-            <label for="convert_unit_to">Unit to Convert to</label>
-            <select name="convert_unit_to" id="">
+            <label for="convert-unit-to">Unit to Convert to</label>
+            <select name="convert-unit-to" id="convert-unit-to">
             </select>
-            <button type="submit">Convert</button>
+            <button type="submit" id="convert-button">Convert</button>
         </form>
     </main>
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>
