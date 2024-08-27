@@ -1,6 +1,6 @@
-const convertLength = document.getElementById("convert-length");
-const convertWeight = document.getElementById("convert-weight");
-const convertTemperature = document.getElementById("convert-temperature");
+const lengthConversion = document.getElementById("length-conversion");
+const weightConversion = document.getElementById("weight-conversion");
+const temperatureConversion = document.getElementById("temperature-conversion");
 
 const unitOptions = {
   length: [
@@ -19,23 +19,14 @@ const unitOptions = {
 
 let currentConversionWindow = "length";
 
-convertLength.addEventListener("click", () => {
-  currentUnitMeasure = "length";
-  applyActiveClass();
-  renderOptions(currentUnitMeasure);
-});
-convertWeight.addEventListener("click", () => {
-  currentUnitMeasure = "weight";
-  applyActiveClass();
-  renderOptions(currentUnitMeasure);
-});
-convertTemperature.addEventListener("click", () => {
-  currentUnitMeasure = "temperature";
-  applyActiveClass();
-  renderOptions(currentUnitMeasure);
-});
+lengthConversion.addEventListener("click", () => renderUnitOptions("length"));
+weightConversion.addEventListener("click", () => renderUnitOptions("weight"));
+temperatureConversion.addEventListener("click", () =>
+  renderUnitOptions("temperature")
+);
 
-function renderUnitOptions(currentConversionWindow) {
+function renderUnitOptions(unit) {
+  currentConversionWindow = unit;
   const startUnitMenu = document.getElementById("convert-unit-from");
   const endUnitMenu = document.getElementById("convert-unit-to");
 
@@ -45,7 +36,7 @@ function renderUnitOptions(currentConversionWindow) {
   const startFragment = document.createDocumentFragment();
   const endFragment = document.createDocumentFragment();
 
-  const option = unitOptions[currentConversionWindow];
+  const option = unitOptions[unit];
 
   option.forEach((unit) => {
     const startUnitOption = document.createElement("option");
@@ -61,10 +52,19 @@ function renderUnitOptions(currentConversionWindow) {
 
   startUnitMenu.appendChild(startFragment);
   endUnitMenu.appendChild(endFragment);
+  applyActiveClass();
 }
 
 function applyActiveClass() {
-  const activeButton = document.getElementById(`convert-${currentUnitMeasure}`);
+  const conversionButton = document.querySelectorAll(".conversion-button");
+
+  conversionButton.forEach((button) => {
+    button.classList.remove("active-button");
+  });
+
+  const activeButton = document.getElementById(
+    `${currentConversionWindow}-conversion`
+  );
   activeButton.classList.add("active-button");
 }
 
