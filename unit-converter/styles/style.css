@@ -111,7 +111,8 @@ main {
 }
 
 #conversion-form input,
-#conversion-form select {
+#conversion-form select,
+.actual-result {
   width: 100%;
   border: 2px solid var(--clr-secondary);
   background-color: var(--clr-primary);
@@ -120,7 +121,8 @@ main {
   padding: 0.25rem;
 }
 
-#convert-button {
+#convert-button,
+#reset-button {
   background-color: var(--clr-secondary);
   width: 100%;
   margin-bottom: 2rem;
