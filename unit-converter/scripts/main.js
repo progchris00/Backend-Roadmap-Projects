@@ -74,4 +74,13 @@ function applyActiveClass() {
   activeButton.classList.add("active-button");
 }
 
+const resetButton = document.getElementById("reset-button");
+
+if (resetButton) {
+  resetButton.addEventListener("click", function () {
+    window.location.href = "home.php";
+    localStorage.clear();
+  });
+}
+
 renderUnitOptions(currentConversionWindow);
