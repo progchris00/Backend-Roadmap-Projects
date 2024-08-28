@@ -3,6 +3,13 @@ $length = (int)$_POST["unit-to-convert"];
 $unitsFrom = $_POST["convert-unit-from"];
 $unitsTo = $_POST["convert-unit-to"];
 
+function convertUnit($length)
+{
+    return $length;
+}
+
+$convertedUnit = convertUnit($length)
+
 ?>
 
 <div class="result">

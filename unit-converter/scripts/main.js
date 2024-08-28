@@ -17,7 +17,8 @@ const unitOptions = {
   temperature: ["celsius", "fahrenheit", "kelvin"],
 };
 
-let currentConversionWindow = "length";
+let currentConversionWindow =
+  localStorage.getItem("conversionWindow") || "length";
 
 lengthConversion.addEventListener("click", () => renderUnitOptions("length"));
 weightConversion.addEventListener("click", () => renderUnitOptions("weight"));
@@ -26,36 +27,41 @@ temperatureConversion.addEventListener("click", () =>
 );
 
 function renderUnitOptions(unit) {
-  currentConversionWindow = unit;
-  const startUnitMenu = document.getElementById("convert-unit-from");
-  const endUnitMenu = document.getElementById("convert-unit-to");
+  const conversionForm = document.getElementById("conversion-form");
+  localStorage.setItem("conversionWindow", unit);
 
-  startUnitMenu.innerHTML = "";
-  endUnitMenu.innerHTML = "";
+  if (conversionForm) {
+    const startUnitMenu = document.getElementById("convert-unit-from");
+    const endUnitMenu = document.getElementById("convert-unit-to");
 
-  const startFragment = document.createDocumentFragment();
-  const endFragment = document.createDocumentFragment();
+    startUnitMenu.innerHTML = "";
+    endUnitMenu.innerHTML = "";
 
-  const option = unitOptions[unit];
+    const startFragment = document.createDocumentFragment();
+    const endFragment = document.createDocumentFragment();
 
-  option.forEach((unit) => {
-    const startUnitOption = document.createElement("option");
-    startUnitOption.setAttribute("value", unit);
-    startUnitOption.textContent = unit;
-    startFragment.appendChild(startUnitOption);
+    const option = unitOptions[unit];
 
-    const endUnitOption = document.createElement("option");
-    endUnitOption.setAttribute("value", unit);
-    endUnitOption.textContent = unit;
-    endFragment.appendChild(endUnitOption);
-  });
+    option.forEach((unit) => {
+      const startUnitOption = document.createElement("option");
+      startUnitOption.setAttribute("value", unit);
+      startUnitOption.textContent = unit;
+      startFragment.appendChild(startUnitOption);
 
-  startUnitMenu.appendChild(startFragment);
-  endUnitMenu.appendChild(endFragment);
+      const endUnitOption = document.createElement("option");
+      endUnitOption.setAttribute("value", unit);
+      endUnitOption.textContent = unit;
+      endFragment.appendChild(endUnitOption);
+    });
+
+    startUnitMenu.appendChild(startFragment);
+    endUnitMenu.appendChild(endFragment);
+  }
   applyActiveClass();
 }
 
 function applyActiveClass() {
+  currentConversionWindow = localStorage.getItem("conversionWindow");
   const conversionButton = document.querySelectorAll(".conversion-button");
 
   conversionButton.forEach((button) => {
