@@ -78,7 +78,7 @@ const resetButton = document.getElementById("reset-button");
 
 if (resetButton) {
   resetButton.addEventListener("click", function () {
-    window.location.href = "home.php";
+    window.location.href = "/";
     localStorage.clear();
   });
 }
