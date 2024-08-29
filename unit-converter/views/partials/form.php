@@ -1,4 +1,4 @@
-<form action="result.php" method="post" id="conversion-form">
+<form action="result" method="post" id="conversion-form">
     <label for="unit-to-convert">Enter the length to convert:</label>
     <input name="unit-to-convert" id="unit-to-convert" type="number" required>
     <label for="convert-unit-from">Unit to Convert from</label>
