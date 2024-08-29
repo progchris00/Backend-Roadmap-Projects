@@ -12,3 +12,10 @@ $routes = [
     "/home" => "controllers/home.php",
     "/result" => "controllers/result.php",
 ];
+
+
+if (array_key_exists($uri, $routes)) {
+    require $routes[$uri];
+} else {
+    require "controllers/error.php";
+}
