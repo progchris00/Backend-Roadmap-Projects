@@ -132,6 +132,11 @@ main {
   color: #fff;
 }
 
+.error-message {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 /* Utilities */
 .active-button {
   color: var(--clr-secondary);
