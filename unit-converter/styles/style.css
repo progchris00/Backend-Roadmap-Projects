@@ -132,6 +132,16 @@ main {
   color: #fff;
 }
 
+#convert-button:hover,
+#reset-button:hover {
+  background-color: #ff7700;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
 .error-message {
   margin-bottom: 2rem;
   text-align: center;
