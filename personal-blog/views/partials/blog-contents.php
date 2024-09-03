@@ -2,10 +2,6 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <?php
-            $database_handle = new PDO("mysql:host=localhost;dbname=test_db", DATABASE_USERNAME, DATABASE_PASSWORD);
-            $database_handle->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
-
-            $public_blogs = $pdo->query("SELECT * FROM blogs WHERE isPublic = 1");
 
             foreach ($public_blogs as $blog) { ?>
 
