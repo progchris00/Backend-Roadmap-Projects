@@ -21,8 +21,6 @@ class Database
         $statement = $this->connection->prepare($query);
         $statement->execute();
 
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
+        return $statement;
     }
 }
