@@ -2,12 +2,12 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <?php
-            $pdo = new PDO("mysql:host=localhost;dbname=test_db", DATABASE_USERNAME, DATABASE_PASSWORD);
-            $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+            $database_handle = new PDO("mysql:host=localhost;dbname=test_db", DATABASE_USERNAME, DATABASE_PASSWORD);
+            $database_handle->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 
-            $unbufferedResult = $pdo->query("SELECT * FROM blogs WHERE isPublic = 1");
+            $public_blogs = $pdo->query("SELECT * FROM blogs WHERE isPublic = 1");
 
-            foreach ($unbufferedResult as $blog) { ?>
+            foreach ($public_blogs as $blog) { ?>
 
                 <article class="flex max-w-xl flex-col items-start justify-between">
                     <div class="flex items-center gap-x-4 text-xs">
