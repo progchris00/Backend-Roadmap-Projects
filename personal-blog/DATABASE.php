@@ -5,7 +5,7 @@ require "database.config.php";
 
 class Database
 {
-    public function query($value)
+    public function query($query)
     {
         $dsn = "mysql:host=localhost;dbname=test_db;{DATABASE_USERNAME}";
 
@@ -13,7 +13,10 @@ class Database
 
         $database_handle->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 
-        $result = $database_handle->query($value);
+        $statement = $database_handle->prepare($query);
+        $statement->execute();
+
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return $result;
     }
