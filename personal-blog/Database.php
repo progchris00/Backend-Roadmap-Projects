@@ -1,28 +1,25 @@
 <?php
 
-require "database.config.php";
-
-
 class Database
 {
     public $connection;
 
-
-    public function __construct()
+    public function __construct($config)
     {
-        // Set the character set to UTF8. For encoding purposes.
-        $dsn = "mysql:host=localhost;dbname=test_db;charset=utf8mb4";
+        $dsn = "mysql:" . http_build_query($config, "", ";");
 
-        // Add an option when instantiating a PDO class
         $this->connection = new PDO($dsn, DATABASE_USERNAME, DATABASE_PASSWORD, [
+            // Add an option when instantiating a PDO class
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
+
         $this->connection->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
     }
 
     public function query($query)
     {
         $statement = $this->connection->prepare($query);
+
         $statement->execute();
 
         return $statement;
