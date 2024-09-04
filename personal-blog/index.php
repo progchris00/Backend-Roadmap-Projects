@@ -1,4 +1,4 @@
 <?php
 
-require "DATABASE.php";
+require "Database.php";
 require "router.php";
