@@ -13,9 +13,7 @@ class Database
         // Set the character set to UTF8. For encoding purposes.
         $dsn = "mysql:host=localhost;dbname=test_db;charset=utf8mb4";
 
-
-        // Add an option to 
-
+        // Add an option when instantiating a PDO class
         $this->connection = new PDO($dsn, DATABASE_USERNAME, DATABASE_PASSWORD, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
