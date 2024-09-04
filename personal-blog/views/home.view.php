@@ -4,7 +4,7 @@
 $title = "Blogs";
 
 $db = new Database();
-$public_blogs = $db->query("SELECT * FROM blogs WHERE isPublic = 1")->fetchAll(PDO::FETCH_ASSOC);
+$public_blogs = $db->query("SELECT * FROM blogs WHERE isPublic = 1")->fetchAll();
 
 require "views/partials/head.php";
 require "views/partials/nav.php";
