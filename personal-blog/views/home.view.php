@@ -1,7 +1,7 @@
 <?php
 
 
-$title = "Blogs";
+$title = "Public blogs";
 
 require "views/partials/head.php";
 require "views/partials/nav.php";
