@@ -16,11 +16,11 @@ class Database
         $this->connection->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
     }
 
-    public function query($query)
+    public function query($query, $params)
     {
         $statement = $this->connection->prepare($query);
 
-        $statement->execute();
+        $statement->execute($params);
 
         return $statement;
     }
