@@ -16,7 +16,7 @@ class Database
         $this->connection->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
     }
 
-    public function query($query, $params)
+    public function query($query, $params = [])
     {
         $statement = $this->connection->prepare($query);
 
