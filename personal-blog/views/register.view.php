@@ -1,7 +1,7 @@
 <?php
 
 
-$title = "Login";
+$title = "Register";
 
 
 require "views/partials/head.php";
