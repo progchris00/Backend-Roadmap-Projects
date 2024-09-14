@@ -10,12 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $user = $db->query("SELECT * FROM users WHERE username = :username", ["username" => $username])->find();
-
-    if ($user["username"] == $username && $user["password"] == $password) {
+    $current_user = $db->query("SELECT * FROM users WHERE username = :username", ["username" => $username])->find();
+    if ($current_user["username"] == $username && $current_user["password"] == $password) {
+        $_SESSION["current_user"] = $current_user;
         $_SESSION["isLogin"] = true;
         header("Location: /");
-    } else if ($user["username"] == $username && $user["password"] != $password) {
+    } else if ($current_user["username"] == $username && $current_user["password"] != $password) {
         echo "Wrong password";
     } else {
         echo "User not found.";
