@@ -8,6 +8,7 @@ $routes = [
     "/login" => "controllers/login.php",
     "/register" => "controllers/register.php",
     "/blog" => "controllers/blog.php",
+    "/logout" => "controllers/logout.php",
 ];
 
 
