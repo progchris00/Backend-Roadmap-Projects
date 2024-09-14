@@ -10,9 +10,6 @@ $id = $_GET["id"];
 
 $blog_post = $db->query("SELECT * FROM blogs WHERE id = :id", ["id" => $id])->findOrFail();
 
-if ($blog_post["isPublic"] != $isPublic) {
-    abort(Response::FORBIDDEN);
-}
-
+authorize($blog_post["isPublic"] == $isPublic);
 
 require "views/blog.view.php";
