@@ -2,9 +2,6 @@
 
 $routes = require "routes.php";
 
-// This extracts the url only from the URI, disregarding other words.
-$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-
 function routeToController($uri, $routes)
 {
 
@@ -24,6 +21,10 @@ function abort($code = 404)
 
     die();
 }
+
+
+// This extracts the url only from the URI, disregarding other words.
+$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 
 routeToController($uri, $routes);
