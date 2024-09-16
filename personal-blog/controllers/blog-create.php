@@ -16,4 +16,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 }
 
-require "views/create-blog.view.php";
+require "views/blog-create.view.php";

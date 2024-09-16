@@ -1,4 +1,4 @@
-<form action="/create-blog" method="POST">
+<form action="/blogs/create" method="POST">
     <label for="">Title</label>
     <input type="text" name="title">
 
