@@ -26,10 +26,10 @@
                                 <a href="#">
                                     <span class="absolute inset-0"></span>
                                     <?php
-                                    if ($_SESSION == NULL) {
-                                        echo ucfirst($blog["username"]);
-                                    } else {
+                                    if (isset($_SESSION)) {
                                         echo $blog['username'] == $_SESSION["current_user"]["username"] ? "You" : ucfirst($blog["username"]);
+                                    } else {
+                                        echo ucfirst($blog["username"]);
                                     } ?>
                                 </a>
                             </p>
