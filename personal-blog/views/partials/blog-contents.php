@@ -25,7 +25,12 @@
                             <p class="font-semibold text-gray-900">
                                 <a href="#">
                                     <span class="absolute inset-0"></span>
-                                    <?= $blog['username'] == $_SESSION["current_user"]["username"] ? "You" : ucfirst($blog["username"]) ?>
+                                    <?php
+                                    if ($_SESSION == NULL) {
+                                        echo ucfirst($blog["username"]);
+                                    } else {
+                                        echo $blog['username'] == $_SESSION["current_user"]["username"] ? "You" : ucfirst($blog["username"]);
+                                    } ?>
                                 </a>
                             </p>
                             <p class="text-gray-600"><?= ucfirst($blog["role"]) ?></p>
