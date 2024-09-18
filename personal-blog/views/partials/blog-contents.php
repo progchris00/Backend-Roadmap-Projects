@@ -26,7 +26,7 @@
                                 <a href="#">
                                     <span class="absolute inset-0"></span>
                                     <?php
-                                    if (isset($_SESSION)) {
+                                    if (isset($_SESSION["isLogin"])) {
                                         echo $blog['username'] == $_SESSION["current_user"]["username"] ? "You" : ucfirst($blog["username"]);
                                     } else {
                                         echo ucfirst($blog["username"]);
